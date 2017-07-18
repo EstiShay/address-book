@@ -30,12 +30,11 @@ Address.prototype.fullAddress = function() {
 }
 
 
-
 //UI logic
 $(document).ready(function() {
 
   $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
+    $("#new-addresses").append('<div class="new-address" id="additional-address">' +
                                  '<div class="form-group">' +
                                    '<label for="new-street">Street</label>' +
                                    '<input type="text" class="form-control new-street">' +
@@ -48,7 +47,11 @@ $(document).ready(function() {
                                    '<label for="new-state">State</label>' +
                                    '<input type="text" class="form-control new-state">' +
                                  '</div>' +
-                               '</div>');
+                                 '<div class="form-group">' +
+                                  '<label for="new-adType"> Address Type</label>' +
+                                  '<input type="text" class="form-control new-adType">' +
+                                  '</div>' +
+                                '</div>');
   });
 
   $("form#new-contact").submit(function(event) {
@@ -81,5 +84,7 @@ $(document).ready(function() {
     });
 
     resetFields();
+    $(".new-address").not(document.getElementById( "original-address")).remove();
+
   });
 });
