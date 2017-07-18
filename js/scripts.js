@@ -5,10 +5,11 @@ function Contact(first, last) {
   this.addresses = [];
 }
 
-function Address(street, city, state) {
+function Address(street, city, state, adType) {
   this.street = street;
   this.city = city;
   this.state = state;
+  this.adType = adType;
 }
 
 function resetFields() {
@@ -17,6 +18,7 @@ function resetFields() {
     $("input.new-street").val("");
     $("input.new-city").val("");
     $("input.new-state").val("");
+    $("input.new-adType").val("");
 }
 
 Contact.prototype.fullName = function() {
@@ -80,8 +82,4 @@ $(document).ready(function() {
 
     resetFields();
   });
-});
-
-
-
 });
